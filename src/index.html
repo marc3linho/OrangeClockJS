@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrangeClockJS</title>
 
+     <!-- Add the link tag for Libre Franklin Bold from Google Fonts -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap">
+
     <style>
         :root {
-            --main-font: 'Arial', sans-serif; /* Set the main font */
+            --main-font: 'Libre Franklin', sans-serif; /* Set the main font */
             --main-font-size: 60px; /* Set the main font size */
             --line-height: 0.1; /* Set the line height */
         }
@@ -22,6 +25,7 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
+            font-family: var(--main-font);
         }
         #output-container {
             border: 80px solid orange; /* Add an orange border to create a frame */
@@ -30,12 +34,24 @@
             padding: 0px; /* Add padding inside the frame */
             text-align: center;
         }
-        #first-api-container,
-        #second-api-container,
+        #first-api-container{
+            background-color: #ddd; /* Set a darker grey background for data containers */
+            padding: 1px 100px; /* Add some padding for better visibility */
+            margin-bottom: 0px 0; /* Add margin between containers */
+            font-size: var(--main-font-size); /* Use the main font size */
+            line-height: var(--line-height);
+        }
+        #second-api-container{
+            background-color: #ddd; /* Set a darker grey background for data containers */
+            padding: 1px 100px; /* Add some padding for better visibility */
+            margin-bottom: 0 0; /* Add margin between containers */
+            font-size: var(--main-font-size); /* Use the main font size */
+            line-height: var(--line-height);
+        }
         #third-api-container {
             background-color: #ddd; /* Set a darker grey background for data containers */
             padding: 1px 100px; /* Add some padding for better visibility */
-            margin-bottom: 1px 0; /* Add margin between containers */
+            margin-bottom: 0 0; /* Add margin between containers */
             font-size: var(--main-font-size); /* Use the main font size */
             line-height: var(--line-height);
         }
