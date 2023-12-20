@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrangeClockJS</title>
+
+    <style>
+        :root {
+            --main-font: 'Arial', sans-serif; /* Set the main font */
+            --main-font-size: 60px; /* Set the main font size */
+            --line-height: 0.1; /* Set the line height */
+        }
+        #logo {
+            margin-bottom: 20px; /* Add margin below the logo */
+        }
+        body {
+            background-color: #f0f0f0; /* Set a light grey background for the entire page */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        #output-container {
+            border: 80px solid orange; /* Add an orange border to create a frame */
+            border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+            margin: 0px 0; /* Add margin between the frame and other content */
+            padding: 0px; /* Add padding inside the frame */
+            text-align: center;
+        }
+        #first-api-container,
+        #second-api-container,
+        #third-api-container {
+            background-color: #ddd; /* Set a darker grey background for data containers */
+            padding: 1px 100px; /* Add some padding for better visibility */
+            margin-bottom: 1px 0; /* Add margin between containers */
+            font-size: var(--main-font-size); /* Use the main font size */
+            line-height: var(--line-height);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>OrangeClockJS</h1> 
+    <div id="logo">
+        <img src="https://raw.githubusercontent.com/marc3linho/OrangeClock/f310ad9b1bc2dffdf91db50cc76138efc2a45393/logo/light/png/logo.png" alt="Logo" width="1000"> 
+    </div>
+    <div id="output-container">
+        <div id="first-api-container"></div>
+        <div id="third-api-container"></div>
+        <div id="second-api-container"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial data fetch
+            fetchDataAndUpdate('https://mempool.space/api/blocks/tip/height', 'first-api-container');
+            fetchDataAndUpdate('https://mempool.space/api/v1/fees/recommended', 'second-api-container');
+            fetchDataAndUpdate('https://mempool.space/api/v1/prices', 'third-api-container');
+
+            // Set interval for updating data every minute
+            setInterval(() => {
+                fetchDataAndUpdate('https://mempool.space/api/blocks/tip/height', 'first-api-container');
+                fetchDataAndUpdate('https://mempool.space/api/v1/fees/recommended', 'second-api-container');
+                fetchDataAndUpdate('https://mempool.space/api/v1/prices', 'third-api-container');
+            }, 60000); // 60000 milliseconds = 1 minute
+        });
+
+        async function fetchDataAndUpdate(apiUrl, containerId) {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                displayData(data, containerId);
+            } catch (error) {
+                console.error(`Error fetching data from ${apiUrl}:`, error);
+            }
+        }
+
+        function displayData(data, containerId) {
+            const dataContainer = document.getElementById(containerId);
+
+            if (containerId === 'first-api-container') {
+                // Display the string data in a paragraph element
+                dataContainer.innerHTML = `<p>Block: ${data}</p>`;
+            } else if (containerId === 'second-api-container') {
+                // Assuming the second API response structure
+                const htmlContent = `
+                    <p>L: ${data.hourFee} M: ${data.halfHourFee} H: ${data.fastestFee}</p>
+                `;
+                dataContainer.innerHTML = htmlContent;
+            } else if (containerId === 'third-api-container') {
+                // Assuming the second API response structure
+                const htmlContent = `
+                    <p>USD: ${data.USD}</p>
+                `;
+                dataContainer.innerHTML = htmlContent;
+            }
+        }
+    </script>
+
+</body>
+</html>
