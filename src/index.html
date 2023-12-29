@@ -18,11 +18,11 @@
     <style>
       :root {
         --main-font: "Libre Franklin", sans-serif; /* Set the main font */
-        --main-font-size: 60px; /* Set the main font size */
+        --main-font-size: 4vw; /* Set the main font size in viewport width units */
         --line-height: 0; /* Set the line height */
       }
       #logo {
-        margin-bottom: 20px; /* Add margin below the logo */
+        margin-bottom: 10px; /* Adjust margin below the logo */
       }
       body {
         background-color: #f0f0f0; /* Set a light grey background for the entire page */
@@ -36,45 +36,41 @@
         font-family: var(--main-font);
       }
       #output-container {
-        border: 80px solid orange; /* Add an orange border to create a frame */
+        border: 40px solid orange; /* Adjust border width */
         border-radius: 8px; /* Optional: Add border-radius for rounded corners */
-        margin: 0px 0; /* Add margin between the frame and other content */
-        padding: 0px; /* Add padding inside the frame */
+        margin: 10px 0; /* Adjust margin between the frame and other content */
+        padding: 0; /* Adjust padding inside the frame */
         text-align: center;
       }
-      #first-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0px 0; /* Add margin between containers */
-        font-size: var(--main-font-size); /* Use the main font size */
-        line-height: var(--line-height);
-        height: 1px;
-      }
-      #second-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0 0; /* Add margin between containers */
-        font-size: var(--main-font-size); /* Use the main font size */
-        line-height: var(--line-height);
-        height: 100px;
-      }
+      #first-api-container,
+      #second-api-container,
       #third-api-container {
         background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0 0; /* Add margin between containers */
-        font-size: 100px; /* Use the main font size */
+        padding: 10px 20px; /* Adjust padding for better visibility */
+        margin-bottom: 10px; /* Adjust margin between containers */
+        font-size: var(--main-font-size); /* Use the main font size */
         line-height: var(--line-height);
-        height: 180px;
+      }
+
+      /* Media query for screens up to 375 pixels wide (iPhone 13 Mini portrait width) */
+      @media only screen and (max-width: 375px) {
+        #output-container {
+          border-width: 20px; /* Reduce border width for smaller screens */
+        }
+        #first-api-container,
+        #second-api-container,
+        #third-api-container {
+          font-size: 3.5vw; /* Adjust font size for smaller screens */
+        }
       }
     </style>
   </head>
   <body>
-    <!-- <h1>OrangeClockJS</h1>  -->
     <div id="logo">
       <img
         src="https://raw.githubusercontent.com/marc3linho/OrangeClock/f310ad9b1bc2dffdf91db50cc76138efc2a45393/logo/light/png/logo.png"
         alt="Logo"
-        width="600"
+        width="300" <!-- Adjusted width for smaller screens -->
       />
     </div>
     <div id="output-container">
