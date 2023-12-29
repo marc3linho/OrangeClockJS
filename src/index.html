@@ -7,6 +7,7 @@
 
      <!-- Add the link tag for Libre Franklin Bold from Google Fonts -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap">
+     <script src="https://kit.fontawesome.com/090ca49637.js" crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -41,7 +42,7 @@
             margin-bottom: 0px 0; /* Add margin between containers */
             font-size: var(--main-font-size); /* Use the main font size */
             line-height: var(--line-height);
-            height: 60px;
+            height: 1px;
         }
         #second-api-container{
             background-color: #ddd; /* Set a darker grey background for data containers */
@@ -57,7 +58,7 @@
             margin-bottom: 0 0; /* Add margin between containers */
             font-size: 100px; /* Use the main font size */
             line-height: var(--line-height);
-            height: 140px;
+            height: 180px;
         }
     </style>
 </head>
@@ -106,7 +107,7 @@
 
             if (containerId === 'first-api-container') {
                 // Display the string data in a paragraph element
-                dataContainer.innerHTML = `<p>Block: ${data}</p>`;
+                dataContainer.innerHTML = `<p>${data}</p>`;
             } else if (containerId === 'second-api-container') {
                 // Assuming the second API response structure
                 const htmlContent = `
@@ -116,7 +117,7 @@
             } else if (containerId === 'third-api-container') {
                 // Assuming the second API response structure
                 const htmlContent = `
-                    <p> $${data.USD}</p>
+                    <p><i class="fak fa-regular"></i>${Math.round(100000000/data.USD)}</p>
                 `;
                 dataContainer.innerHTML = htmlContent;
             }
