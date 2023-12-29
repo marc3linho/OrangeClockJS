@@ -17,60 +17,60 @@
 
     <style>
       :root {
-        --main-font: "Libre Franklin", sans-serif; /* Set the main font */
-        --main-font-size: 4vw; /* Set the main font size in viewport width units */
-        --line-height: 0; /* Set the line height */
-      }
-      #logo {
-        margin-bottom: 10px; /* Adjust margin below the logo */
-      }
-      body {
-        background-color: #f0f0f0; /* Set a light grey background for the entire page */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        flex-direction: column;
-        font-family: var(--main-font);
-      }
-      #output-container {
-        border: 40px solid orange; /* Adjust border width */
-        border-radius: 8px; /* Optional: Add border-radius for rounded corners */
-        margin: 10px 0; /* Adjust margin between the frame and other content */
-        padding: 0; /* Adjust padding inside the frame */
-        text-align: center;
-      }
-      #first-api-container,
-      #second-api-container,
-      #third-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 10px 20px; /* Adjust padding for better visibility */
-        margin-bottom: 10px; /* Adjust margin between containers */
-        font-size: var(--main-font-size); /* Use the main font size */
-        line-height: var(--line-height);
-      }
+  --main-font: "Libre Franklin", sans-serif; /* Set the main font */
+  --main-font-size: 3vw; /* Set the main font size in viewport width units */
+  --line-height: normal; /* Adjust line height for better spacing */
+}
 
-      /* Media query for screens up to 375 pixels wide (iPhone 13 Mini portrait width) */
-      @media only screen and (max-width: 375px) {
-        #output-container {
-          border-width: 20px; /* Reduce border width for smaller screens */
-        }
-        #first-api-container,
-        #second-api-container,
-        #third-api-container {
-          font-size: 3.5vw; /* Adjust font size for smaller screens */
-        }
-      }
-    </style>
+body {
+  background-color: #f0f0f0; /* Set a light grey background for the entire page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--main-font);
+}
+
+#output-container {
+  border: 40px solid orange; /* Adjust border width */
+  border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+  padding: 0vh; /* Adjust padding inside the frame */
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+#first-api-container{
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: var(--main-font-size); /* Use the main font size */
+  line-height: 1.5;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#second-api-container{
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: var(--main-font-size); /* Use the main font size */
+  line-height: 1.1;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#third-api-container {
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: 8vw; /* Use the main font size */
+  line-height: 1.3;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#first-api-container p,
+#second-api-container p,
+#third-api-container p {
+  margin: 0; /* Remove default margin on paragraphs */
+}
+</style>
   </head>
   <body>
     <div id="logo">
       <img
         src="https://raw.githubusercontent.com/marc3linho/OrangeClock/f310ad9b1bc2dffdf91db50cc76138efc2a45393/logo/light/png/logo.png"
         alt="Logo"
-        width="300" <!-- Adjusted width for smaller screens -->
+        width="400" 
       />
     </div>
     <div id="output-container">
