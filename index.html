@@ -32,7 +32,7 @@ body {
 }
 
 #output-container {
-  border: 40px solid orange; /* Adjust border width */
+  border: 3vw solid orange; /* Adjust border width */
   border-radius: 8px; /* Optional: Add border-radius for rounded corners */
   padding: 0vh; /* Adjust padding inside the frame */
   text-align: center;
@@ -49,7 +49,7 @@ body {
 #second-api-container{
   background-color: #ddd; /* Set a darker grey background for data containers */
   font-size: var(--main-font-size); /* Use the main font size */
-  line-height: 1.1;
+  line-height: 1.5;
   margin-bottom: 0px; /* Adjust margin between containers */
 }
 #third-api-container {
@@ -70,7 +70,7 @@ body {
       <img
         src="https://raw.githubusercontent.com/marc3linho/OrangeClock/f310ad9b1bc2dffdf91db50cc76138efc2a45393/logo/light/png/logo.png"
         alt="Logo"
-        width="400" 
+        width="1200"
       />
     </div>
     <div id="output-container">
@@ -142,7 +142,7 @@ body {
           const htmlContent = `
                     <p><i class="fak fa-regular"></i>${Math.round(
                       100000000 / data.USD
-                    )}</p>
+                    )} &nbsp;</p>
                 `;
           dataContainer.innerHTML = htmlContent;
         }
