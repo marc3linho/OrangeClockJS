@@ -10,6 +10,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap"
     />
+    <link 
+      rel="stylesheet" href="style.css"
+    />
     <script
       src="https://kit.fontawesome.com/090ca49637.js"
       crossorigin="anonymous"
@@ -137,17 +140,17 @@ body {
 
         if (containerId === "first-api-container") {
           // Display the string data in a paragraph element
-          dataContainer.innerHTML = `<p>${data}</p>`;
+          dataContainer.innerHTML = `<p><i class="icon-block"></i> ${data}</p>`;
         } else if (containerId === "second-api-container") {
           // Assuming the second API response structure
           const htmlContent = `
-                    <p>L: ${data.hourFee} M: ${data.halfHourFee} H: ${data.fastestFee}</p>
+                    <p><i class="icon-fees"></i> L:${data.hourFee} M:${data.halfHourFee} H:${data.fastestFee}</p>
                 `;
           dataContainer.innerHTML = htmlContent;
         } else if (containerId === "third-api-container") {
           // Assuming the second API response structure
           const htmlContent = `
-                    <p><i class="fak fa-regular"></i>${Math.round(
+                    <p><i class="icon-sats"></i>${Math.round(
                       100000000 / data.USD
                     )} &nbsp;</p>
                 `;
