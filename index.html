@@ -10,6 +10,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap"
     />
+    <link 
+      rel="stylesheet" href="style.css"
+    />
     <script
       src="https://kit.fontawesome.com/090ca49637.js"
       crossorigin="anonymous"
@@ -17,64 +20,67 @@
 
     <style>
       :root {
-        --main-font: "Libre Franklin", sans-serif; /* Set the main font */
-        --main-font-size: 60px; /* Set the main font size */
-        --line-height: 0; /* Set the line height */
-      }
-      #logo {
-        margin-bottom: 20px; /* Add margin below the logo */
-      }
-      body {
-        background-color: #f0f0f0; /* Set a light grey background for the entire page */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        flex-direction: column;
-        font-family: var(--main-font);
-      }
-      #output-container {
-        border: 80px solid orange; /* Add an orange border to create a frame */
-        border-radius: 8px; /* Optional: Add border-radius for rounded corners */
-        margin: 0px 0; /* Add margin between the frame and other content */
-        padding: 0px; /* Add padding inside the frame */
-        text-align: center;
-      }
-      #first-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0px 0; /* Add margin between containers */
-        font-size: var(--main-font-size); /* Use the main font size */
-        line-height: var(--line-height);
-        height: 1px;
-      }
-      #second-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0 0; /* Add margin between containers */
-        font-size: var(--main-font-size); /* Use the main font size */
-        line-height: var(--line-height);
-        height: 100px;
-      }
-      #third-api-container {
-        background-color: #ddd; /* Set a darker grey background for data containers */
-        padding: 1px 20px; /* Add some padding for better visibility */
-        margin-bottom: 0 0; /* Add margin between containers */
-        font-size: 100px; /* Use the main font size */
-        line-height: var(--line-height);
-        height: 180px;
-      }
-    </style>
+  --main-font: "Libre Franklin", sans-serif; /* Set the main font */
+  --main-font-size: 3vw; /* Set the main font size in viewport width units */
+  --line-height: normal; /* Adjust line height for better spacing */
+}
+
+body {
+  background-color: #f0f0f0; /* Set a light grey background for the entire page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--main-font);
+}
+
+#output-container {
+  border: 3vw solid orange; /* Adjust border width */
+  border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+  padding: 0vh; /* Adjust padding inside the frame */
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+#first-api-container{
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: var(--main-font-size); /* Use the main font size */
+  line-height: 1.5;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#second-api-container{
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: var(--main-font-size); /* Use the main font size */
+  line-height: 1.5;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#third-api-container {
+  background-color: #ddd; /* Set a darker grey background for data containers */
+  font-size: 8vw; /* Use the main font size */
+  line-height: 1.3;
+  margin-bottom: 0px; /* Adjust margin between containers */
+}
+#first-api-container p,
+#second-api-container p,
+#third-api-container p {
+  margin: 0; /* Remove default margin on paragraphs */
+}
+#logo {
+  margin: 2vh auto; /* Center the logo horizontally */
+}
+#logo img {
+  width: 40%; /* Set the logo width as a percentage of the viewport width */
+  display: block; /* Remove default inline display, ensuring proper centering */
+  margin: 0 auto; /* Center the image within the container */
+}
+</style>
   </head>
   <body>
-    <!-- <h1>OrangeClockJS</h1>  -->
     <div id="logo">
       <img
         src="https://raw.githubusercontent.com/marc3linho/OrangeClock/f310ad9b1bc2dffdf91db50cc76138efc2a45393/logo/light/png/logo.png"
         alt="Logo"
-        width="600"
       />
     </div>
     <div id="output-container">
@@ -134,19 +140,19 @@
 
         if (containerId === "first-api-container") {
           // Display the string data in a paragraph element
-          dataContainer.innerHTML = `<p>${data}</p>`;
+          dataContainer.innerHTML = `<p><i class="icon-block"></i> ${data}</p>`;
         } else if (containerId === "second-api-container") {
           // Assuming the second API response structure
           const htmlContent = `
-                    <p>L: ${data.hourFee} M: ${data.halfHourFee} H: ${data.fastestFee}</p>
+                    <p><i class="icon-fees"></i> L:${data.hourFee} M:${data.halfHourFee} H:${data.fastestFee}</p>
                 `;
           dataContainer.innerHTML = htmlContent;
         } else if (containerId === "third-api-container") {
           // Assuming the second API response structure
           const htmlContent = `
-                    <p><i class="fak fa-regular"></i>${Math.round(
+                    <p><i class="icon-sats"></i>${Math.round(
                       100000000 / data.USD
-                    )}</p>
+                    )} &nbsp;</p>
                 `;
           dataContainer.innerHTML = htmlContent;
         }
